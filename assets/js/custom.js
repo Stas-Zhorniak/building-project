@@ -37,22 +37,43 @@ const installBuilds = () => {
 
     document.querySelector(".building-container") ? installBuilds() : null;
 
+ 
+    function installModal () {
 
-    const callModalWindow = document.querySelectorAll("[data-modal]");
-    const customModal = document.querySelectorAll(".custom-modal");
-
-    customModal.forEach((modalId, index) => {
-        modalId.setAttribute("id", "modal-" + (index + 1));
-    })
-
-    callModalWindow.forEach((call, index) => {
-        call.addEventListener("click", () => {
-            const callModal = document.querySelector("#modal-" +  (index + 1));
-            console.log(callModal);
-            callModal.classList.remove(".show");
+        const callModalWindow = document.querySelectorAll("[data-modal]");
+        const customModal = document.querySelectorAll(".custom-content");
+        const closeModalWindow = document.querySelectorAll(".custom-btn");
+        const modalOverlayClose = document.querySelectorAll(".custom-modal");
+    
+        customModal.forEach((modalId, index) => {
+            modalId.setAttribute("id", "modal-" + (index + 1));
         })
-    })
+    
+        callModalWindow.forEach((call, index) => {
+            call.addEventListener("click", () => {
+                const callModal = document.querySelector("#modal-" +  (index + 1));
+                callModal.style.display = "block";
+                
+                
 
+            })
+        })
+    
+   
+        closeModalWindow.forEach((call, index) => {
+            call.addEventListener("click", function closeWindow () {
+                const closeModal = document.querySelector("#modal-" +  (index + 1));
+                closeModal.style.display = "none";
+
+                window.onclick = (event) =>  modalOverlayClose.forEach(item => {
+                    event.target == item ? closeWindow () : false;
+                        
+                })
+                });
+            })
+ }
+
+    document.querySelector(".custom-modal") ? installModal() : null;
 
 
 
