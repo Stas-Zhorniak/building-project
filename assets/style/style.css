@@ -10,22 +10,10 @@ body {
 
 .building {
   margin: 0 auto;
-  max-width: 1920px;
-  width: 100%;
 }
 
 .building-container {
   position: relative;
-  margin: 0 auto;
-  max-width: 1600px;
-  width: 100%;
-  height: 100vh;
-}
-
-.buiding-navbar svg {
-  max-width: 1600px;
-  width: 100%;
-  height: 100vh;
 }
 
 .buiding-navbar path {
@@ -54,8 +42,7 @@ body {
 .building-info {
   display: flex;
   position: fixed;
-  top: 0;
-  right: 0;
+  left: 10px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
@@ -81,17 +68,20 @@ body {
 }
 
 .custom-modal {
-  /* position: absolute;
+  display: none;
+  position: absolute;
   top: 0;
-  left: 0; */
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.44);
 }
 
 .custom-content {
-  display: none;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -99,8 +89,75 @@ body {
   height: 300px;
   background: white;
   text-align: center;
+  z-index: 1;
 }
 
 .custom-btn button {
+  margin-top: 50px;
   color: black;
+}
+
+.close-label {
+  position: absolute;
+  background: url("../img/close-btn-img.png") no-repeat;
+  width: 70px;
+  height: 50px;
+  top: 0;
+  right: -12.5px;
+}
+
+/* FLOOR-PLAN */
+
+.flat {
+  cursor: pointer;
+}
+
+.flat-border {
+  fill: rgba(255, 230, 1, 0);
+}
+
+.flat:hover .flat-border {
+  fill: rgb(133, 229, 114, 0.4);
+  stroke: rgb(133, 229, 114);
+}
+
+.status-border,
+.status-cell {
+  stroke: black;
+  stroke-width: 2;
+  fill: #fff;
+}
+
+.sale .status-cell {
+  fill: #00defc;
+}
+
+.booking .status-cell {
+  fill: #6b68ff;
+}
+
+.sold .status-cell {
+  fill: #d34e4e;
+}
+
+.promotion .status-cell {
+  fill: #80d34e;
+}
+
+.flat-font {
+  white-space: pre;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0em;
+  fill: #000;
+}
+
+.flat-info {
+  margin: 0 auto;
+  max-width: 780px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
 }
