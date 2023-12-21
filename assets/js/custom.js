@@ -118,10 +118,13 @@ const installBuilds = () => {
             buildInfo.style.top = buildInfoTop + "px";
     
           }
+
           reportWindowSize();
           window.onresize = reportWindowSize;
-    }
 
+          
+    }
+    document.querySelector(".buiding-navbar") ? installCalcHeight() : null;
 
 const flatArray = [
     {
